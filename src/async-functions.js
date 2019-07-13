@@ -1,5 +1,5 @@
 
-// resolve with only arrays of url for the resident of tatooline residents
+// Get arrays of url for the resident of tatooline residents
 const getTatooineResidents = () => {
     const superagent = require('superagent')
     return superagent
@@ -22,7 +22,7 @@ const promiseMeAString = (checkIfIsString) => {
 
 setTimeout(promiseMeAString, 1000) // trying to set timeout for last error
 
-
+//Exports as function
 module.exports = {
     getTatooineResidents,
     promiseMeAString

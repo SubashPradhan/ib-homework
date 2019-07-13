@@ -1,14 +1,17 @@
+// Creating function to export
 const groupAdultsByAgeRange = (persons) => {
     if (persons.length === 0) {
-        return {}
+        return {}                   //Returns empty object with empty condition/empty array
     }
 
+    //Filters age above 18 years old
     const ageAbove18 = persons.filter((person) => {
         if (person.age >= 18) {
             return true
         }
     })
 
+    //Categorization of agegroup
     const ageGroup = {
         '20 and younger': [],
         '21-30': [],
@@ -18,6 +21,7 @@ const groupAdultsByAgeRange = (persons) => {
 
     }
 
+    // Pushing data to right age-group
     ageAbove18.reduce((group, currentPerson) => {
         if (currentPerson.age < 21) {
             ageGroup['20 and younger'].push(currentPerson);
@@ -31,10 +35,9 @@ const groupAdultsByAgeRange = (persons) => {
             ageGroup['51 and older'].push(currentPerson);
         }
         return group
-    }, {
+    }, ageGroup)
 
-        })
-
+    // Creating result documentattion for right age-group
     const result = {};
     if (ageGroup['20 and younger'].length !== 0) {
         result['20 and younger'] = ageGroup['20 and younger']
@@ -54,4 +57,5 @@ const groupAdultsByAgeRange = (persons) => {
     return result;
 }
 
+// exporting function
 module.exports.groupAdultsByAgeRange = groupAdultsByAgeRange;
