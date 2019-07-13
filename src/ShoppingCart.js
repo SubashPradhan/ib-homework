@@ -1,25 +1,27 @@
 class ShoppingCart {
-    constructor(){
+    constructor() {
         this.items = []
     }
     getItems() {
         return this.items
     }
-    addItem(itemName, quantity, pricePerUnit){
+    addItem(itemName, quantity, pricePerUnit) {
         const newItems = {
-            name: itemName,    
+            name: itemName,
             quantity: quantity,
             pricePerUnit: pricePerUnit
         }
-        return this.items.push(newItems)    
+        return this.items.push(newItems)
     }
-    clear(){
-        return this.items =[]
+    clear() {
+        return this.items = []
     }
-    total(){
-        return this.items.reduce((accumulator, Item) => {
-            accumulator + (Item.quantity * Item.pricePerUnit)
-        },0)
+    total() {
+        const totalCost = this.items.reduce((accumulator, Item) => {
+            let totalCostOfEachItem = (Item.quantity * Item.pricePerUnit)
+            return accumulator + totalCostOfEachItem
+        }, 0)
+        return totalCost
     }
 
 }
