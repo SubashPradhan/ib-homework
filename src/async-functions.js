@@ -20,7 +20,9 @@ const promiseMeAString = (checkIfIsString) => {
     })
 }
 
-setTimeout(promiseMeAString, 1000) // trying to set timeout for last error
+
+
+setTimeout(promiseMeAString, 100) // trying to set timeout for last error
 
 
 module.exports = {
